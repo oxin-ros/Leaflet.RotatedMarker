@@ -1,4 +1,9 @@
 (function() {
+    // Define a flag to track if modifications have been applied
+    if (L.Marker.prototype._rotationInitHookApplied) {
+        return; // If the flag is true, the code has already been applied
+    }
+
     // save these original methods before they are overwritten
     const proto_initIcon = L.Marker.prototype._initIcon;
     const proto_setPos = L.Marker.prototype._setPos;
@@ -54,4 +59,7 @@
             return this;
         }
     });
+
+    // Set the flag to true after applying the modifications
+    L.Marker.prototype._rotationInitHookApplied = true;
 })();
