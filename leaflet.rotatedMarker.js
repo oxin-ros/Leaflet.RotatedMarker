@@ -1,6 +1,6 @@
 (function() {
     // Define a flag to track if modifications have been applied
-    if (L.Marker.prototype._rotationInitHookApplied) {
+    if ((typeof L.Marker.prototype._rotationInitHookApplied !== 'undefined') && L.Marker.prototype._rotationInitHookApplied) {
         return; // If the flag is true, the code has already been applied
     }
 
