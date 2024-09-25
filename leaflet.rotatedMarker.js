@@ -11,7 +11,7 @@
     const oldIE = (L.DomUtil.TRANSFORM === 'msTransform');
 
     L.Marker.addInitHook(function () {
-        const iconOptions = this.options.icon?.options;
+        const iconOptions = this.options.icon && this.options.icon.options;
         let iconAnchor = iconOptions && this.options.icon.options.iconAnchor;
         if (iconAnchor) {
             iconAnchor = (iconAnchor[0] + 'px ' + iconAnchor[1] + 'px');
@@ -42,7 +42,7 @@
                     this._icon.style[L.DomUtil.TRANSFORM] = 'rotate(' + this.options.rotationAngle + 'deg)';
                 } else {
                     // for modern browsers, prefer the 3D accelerated version
-                    this._icon.style[L.DomUtil.TRANSFORM] = 'rotateZ(' + this.options.rotationAngle + 'deg)';
+                    this._icon.style[L.DomUtil.TRANSFORM] += ' rotateZ(' + this.options.rotationAngle + 'deg)';
                 }
             }
         },
